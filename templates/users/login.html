@@ -1,0 +1,41 @@
+{% load crispy_forms_tags %}
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+ <style>
+    .log{
+    border: 1px solid;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0);
+    }
+</style>
+
+<div style = "padding-left:40%; padding-right:40%;">
+    <div class="log" style = "margin-bottom:30%">
+    <form method = "POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+        {{form|crispy }}
+
+    </fieldset>
+
+        <button class="submit form-group btn btn-outline-info">
+            Sign In
+        </button>
+        <div class="pb-4 pt-4">
+            <a href="{% url 'password_reset' %}"> Forget Password? </a>
+        </div>
+
+        <div class="border-top pt-4">
+            Don't have an Account? <a href="{% url 'register' %}"> Sign Up </a> here.
+        </div>
+
+    </form>
+    </div>
+</div>
+

@@ -1,0 +1,151 @@
+</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {%load static%}
+
+        <link rel="stylesheet" href=" {% static 'site_users/profile.css' %}">
+        <link rel="stylesheet" href=" {% static 'site_users/worktemp.css' %}">
+        <link rel="stylesheet" href=" {% static 'site_users/btn.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ <div class="main-content">
+    <!-- Top navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+      <div class="container-fluid">
+            <a href="{% url 'first-page'%}" class="btn btn-info">Home</a>
+            <a href="{% url 'about' %}" class="btn btn-info">About Us</a>
+            <a href="{% url 'contract' %}" class="btn btn-info">Contact Us</a>
+            <a href="{% url 'profile' %}" class="btn btn-info">User Profile</a>
+            <a href="{% url 'logout' %}" class="btn btn-info">Logout</a>
+
+        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+          <div class="form-group mb-0">
+          </div>
+        </form>
+        <!-- User -->
+        <ul class="navbar-nav align-items-center d-none d-md-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </a>
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </div>
+
+<br>
+<br>
+<br>
+
+</div>
+    </div> <br>
+
+<button class="collapsible">Browse Category </button>
+<div class="content">
+    <button class="btn bt">Accounting/Finance</button>
+    <button class="btn bt">Bank/Non-Bank</button>
+    <button class="btn bt">Education</button>
+    <button class="btn bt">Engineer</button>
+    <button class="btn bt">Design/Creative</button>
+    <button class="btn bt">Media</button>
+    <button class="btn bt">Medical/Pharma</button>
+    <button class="btn bt">Data Entry Operator</button>
+    <button class="btn bt">Marketing</button>
+    <button class="btn bt">IT & Telecommunication</button>
+    <button class="btn bt">Sports</button>
+    <button class="btn bt">Others</button>
+</div>
+
+<button class="collapsible">Special Skilled Jobs </button>
+<div class="content">
+
+    <button class="btn bt">Computer Operator</button>
+    <button class="btn bt">Data Admin</button>
+    <button class="btn bt">Graphic Designer</button>
+    <button class="btn bt">Event Manager</button>
+    <button class="btn bt">Trainer</button>
+    <button class="btn bt">Content Creator</button>
+    <button class="btn bt">App Developer</button>
+    <button class="btn bt">Translator</button>
+    <button class="btn bt">Web Developer</button>
+    <button class="btn bt">Data Analyst</button>
+    <button class="btn bt">Video Editor</button>
+    <button class="btn bt">Article Writer</button>
+    <button class="btn bt">News Editor</button>
+    <button class="btn bt">Photo Editor</button>
+    <button class="btn bt">Others</button>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+<style>
+.btntwo {
+      background-color: #f4511e;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      opacity: 0.6;
+      transition: 0.3s;
+}
+.btntwo:hover {opacity: 1}
+
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+</style>
+  </div>
+        {% for i in pw %}
+
+        <div class="container p-3 my-3 border">
+
+            <h2 class="p3", style="font-size:35px">{{i.Title}}</h2>
+            <p class="p3" , style="font-size:20px">Company Name: {{i.Company_Name}}</p>
+
+            <p class="p2">Description: {{i.Description}}</p>
+            <p class="p2">Requirements: {{i.Requirements}}</p>
+            <p class="p2">Experience: {{i.Experience}}</p>
+            <p class="p2">Salary: {{i.Salary}}</p>
+            <p class="p2">Location: {{i.Location}}</p>
+            <p class="p2">Vacancy: {{i.Vacancy}}</p>
+            <p><button class="button">Apply</button></p>
+
+
+        </div>
+
+        {% endfor %}
+
+</body>
+</html>
